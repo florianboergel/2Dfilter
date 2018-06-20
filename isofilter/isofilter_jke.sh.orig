@@ -1,0 +1,219 @@
+#!/bin/bash
+
+# This script follows the README from Frauke Feser to compile and generate a 2D digital isofilter. 
+# Original comments from the README are marked with a "%" 
+# Compilation and application on ecgate/cca (ECMWF) in Dec 2016 
+# Commented scripts 
+# JKe
+# 12-12-2016 
+
+
+# load modules 
+ #cd /hpc/perm/ms/spde/de5j/tools/analysis-tools/2dfilter/isofilter
+ #./load_modules
+ prgenvswitchto gnu
+ module unload netcdf
+ module load netcdf/3.6.3
+ module load cdo
+ module load nco
+ 
+#*****************************************
+## STEP 1
+#*****************************************
+echo "Step 1: Filter creation compilation"
+echo "Using $NETCDF_DIR"
+	# % FILTER CREATION PROGRAM COMPILATION (create_filter.f90):
+	# % --------------------------------------------------------
+	# % f90 -o create_filter create_filter.f90 < netCDF-libraries >
+	# % For < netCDF-libraries > you have to include your specific netCDF-libraries
+	# % paths, e.g. they should look like
+	# % .../netcdf/netcdf-3.5.1 .../include .../lib/libnccf.a .../lib/libnetcdf.a
+
+	# not working on CCA using gcc or gfortran
+		#f95 -o create_filter create_filter.f90 $NETCDF_INCLUDE/netcdf $NETCDF_INCLUDE $NETCDF_LIB $NETCDF_LIB/libnetcdf.a
+		#gcc -o create_filter create_filter.f90 $NETCDF_INCLUDE/netcdf $NETCDF_INCLUDE $NETCDF_LIB $NETCDF_LIB/libnetcdf.a
+		#gcc -o create_filter create_filter.f90 $NETCDF_DIR/include/netcdf.mod
+		#gcc -o create_filter create_filter.f90 $NETCDF_DIR $NETCDF_INCLUDE $NETCDF_LIB
+		#gcc -o create_filter create_filter.f90 $NETCDF_INCLUDE $NETCDF_LIB/libnetcdf.a 
+	# this one is working on ecgate
+	# -->  
+	#	f95 -o create_filter create_filter.f90 $NETCDF_INCLUDE $NETCDF_LIB
+
+echo "Step 1: Filter application compilation"
+echo "Using $NETCDF_DIR"
+	# % FILTER APPLICATION PROGRAM COMPILATION (filter_data.f90):
+	# % ---------------------------------------------------------
+	# % f90 -o filter_data filter_data.f90 < netCDF-libraries >
+	# % For < netCDF-libraries > you have to include your specific netCDF-libraries
+	# % paths, e.g. they should look like
+	# % .../netcdf/netcdf-3.5.1 .../include .../lib/libnccf.a .../lib/libnetcdf.a
+
+	# working on ecgate
+	# --> 
+	#	f95 -o filter_data filter_data.f90 $NETCDF_INCLUDE $NETCDF_LIB
+
+#*****************************************
+## STEP 2:
+#*****************************************
+## FILTER SCRIPT APPLICATIONS:
+echo "Step 2: generate.sh"
+	# % *  generate.sh
+	# % Usage: generate.sh <spzone> <gridpts in x> <gridpts in y> <wn in x> <wn in y> <filter type (l-low/b-band/h-high)> <outdir>
+		# % * spzone - number of gridpoints used for spongezone
+		# % * gridpts in x - number of gridpoints in x direction (spongezone included) -> see infile
+		# % * gridpts in y - number of gridpoints in y direction (spongezone included) -> see infile
+		# % * wn in x - wavenumbers in x direction (usually half of gridpoints in x)
+		# % * wn in y - wavenumbers in y direction (usually half of gridpoints in y)
+		# % * filter type - press l for lowpass, b for bandpass and h for highpass
+		# % * outdir - output directory
+
+	outdir=$SCRATCH/lowpassfilter_158x158_N8
+	if [ ! -d $outdir ]; then
+		mkdir $outdir
+	fi
+
+	# Define parameters
+	spzone=8
+	gx=316
+	gy=316
+	wx=158
+	wy=158
+	# Execute generate.sh
+	echo "Generating filters..."
+	#echo "high-pass filter"
+	#./generate.sh $spzone $gx $gy $wx $wy "h" $outdir
+	#echo "band-pass filter"
+	#./generate.sh $spzone $gx $gy $wx $wy "b" $outdir
+	echo "low-pass filter"
+	./generate.sh $spzone $gx $gy $wx $wy "l" $outdir
+
+	#echo "Concat response functions..."
+	# % Choose an appropriate response function to find correct values for filtering.
+	# % To make it easier use:
+	# % 'ncecat -h <outdir>/respfunct/l*.nc l.nc'  --> for all response functions for low pass filtering
+	# % 'ncecat -h <outdir>/respfunct/b*.nc b.nc'  --> for all response functions for band pass filtering
+	# % 'ncecat -h <outdir>/respfunct/h*.nc h.nc'  --> for all response functions for high pass filtering
+	
+	ncecat -h $outdir/respfunct/l*.nc lowpassfilter_158x158_8.nc
+	#ncecat -h $outdir/respfunct/b*.nc bandpassfilter_158x158_4_maxinc.nc
+	#ncecat -h $outdir/respfunct/h*.nc h.nc
+
+	# % Use e.g. 'ncview l.nc' to view all low pass response functions and choose
+	# % that one which fits your requirements. Remember the values for 'iio' and
+	# % 'iip' (you have to choose the ones according to the selected response
+	# % function, e.g. if you choose the response function with record number 10,
+	# % take iio and iip for record number 10 as well) for the filter application
+	# % in step 3. These values will be different for the different filter types!
+	
+	# Criteria for response function: 
+	#   - Values between ~0 and 1. (can also be slightly negative) 
+	#   - sharp transition between 0 and 1
+	#   - symmetric patterns, semicircle 
+	#   - values above 0 indicate wave number range (on x- or y-axis) 
+ 	
+	# Procedure to choose a filter: 
+	# 1. Look through "response" in b_158x158_4.nc
+	# 2. Choose a range of wave numbers on x-axis (value >0 is filtered) 
+	# 3. Remember the frame number 
+	# 4. Switch to iip and set xrange to framenumber, adapt yrange and identify iip 
+	# 5. Switch to ii0 and set xrange to framenumber, adapt yrange and identify iio
+	# 6. Double check that the correct response is chosen by looking at 
+	#      $outdir/response/br_316x316_4_158x158_iipxiio.nc
+	# The resulting filter has the name e.g. bf_316x316_4_150x150_IIPxIIO.nc
+	# Note that the order is IIPxIIO instead of IIOxIIP! 
+	# Maybe add a "cat" $frame $iip $iio to generate.sh and dump to file for easier lookup? frame should only be a counter? 
+	
+	# % To estimate the spatial scales of wave numbers to be filtered (gridpts in x = gridpts in y as used in generate.sh): 
+	# % spatial scales in x(=y) [km] = (gridpts in x(=y) * dx(=dy)[km])/wave number in x(=y)
+	
+	# Resulting table a band-pass-filter with N=4, gx=gy=316 and wx=wy=158
+	# screening for the meso-beta-scale (20-200km)
+	#	frame	nmin	nmin[km]	nmax 	nmax[km]	iip	iio	
+	#	288	40	100		110	35		54	98
+	# 	312	44	90		115	34		56	99
+	# 	203	18	219		80	49		30	67	
+	#
+
+	# Note: the exact meso-beta-scale cannot be filtered with this setup
+	# Probably because a) MAX is set to 1.1 but would be exceeded filtering a large band with 
+	# - Question arising: can we increase the maximum for MAX in generate.sh for filter a broader band width? 
+
+#*****************************************
+# STEP 3: 
+#*****************************************
+# FILTER THE DATA
+	echo "Filtering data..." 
+
+	# % Now use 'filter_data.sh' to filter your data.
+	# % ****************************
+	# % *  filter_data.sh
+	# % ****************************
+	# % Before filtering your data the script will make a copy of your input file
+	# % to the output directory. A new variable will be attached to your output file,
+	# % by copying and renaming the original field; e.g. the outfile contains one
+	# % additional variable in comparison with the original input file. The new
+	# % variable name is the name of the one you want to filter plus one letter for
+	# % the used filter type e.g. T_2M --> T_2Mh
+	# % For all of these actions NCO needs to be installed (see System Requirements
+	# % above).
+
+	# % Similar to 'generate.sh' you need to define different parameters:
+	# % input directory, name of input file, output directory, gridpoints in x- and y- direction, 
+	# % variable to filter, filter input directory, and filter type.
+
+	# % Usage: filter_data.sh <indir> <infile> <outdir> <gridpts in x> <gridpts in y> <variable> <filter indir> <filterfile> <filtertype>
+		# % 'indir - input directory'
+		# % 'infile - input file name'
+		# % 'outdir - output directory'
+		# % 'gridpts in x - number of gridpoints in x direction (spongezone included) -> see infile'
+		# % 'gridpts in y - number of gridpoints in y direction (spongezone included) -> see infile'
+		# % 'variable - name variable in input file to be filtered'
+		# % 'filter indir - filter input directory'
+		# % 'filterfile - filter file name'
+		# % 'filter type - press l for lowpass, b for bandpass and h for highpass'
+
+	# Choose a filter 
+	#filter_indir="$SCRATCH/bfilter_158x158_N4/filters/"
+	#filterfile="bf_316x316_4_158x158_030x067.nc"
+	#filtertype="b"
+	## Set parameters
+        #gx=316
+        #gy=316
+	#yyyy="2003"
+	#mm="06"
+	## Set directory 
+	#expid="MODIS2000_HFD1_3D_sn_v03l"
+	#indir="$SCRATCH/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_${expid}/output/pp/focusdomain/cosmo_out/hourly/"
+	#var="T"
+	#infile="tsmp_out_cosmo_${var}_${yyyy}-${mm}_focusdomain_316x316.nc"
+	#outdir="${SCRATCH}/bfilter_158x158_N4/output/${var}/${expid}"
+	#mkdir -p $outdir
+
+	## Pre-process data if dimension has multiple levels 
+	#levstring=`ncdump -h $indir/$infile | grep "lev"`	# string is empty if levels do not exist
+	#if  [[ ! -z "${levstring// }" ]];
+	#then
+	#	nlev=`ncdump -h $indir/$infile | grep "lev" | grep "lev = " | awk '{print $3}'`
+	#	echo "Looping until ...${nlev}"
+	#	for i in $(seq 40 $nlev)
+	#	#for ((i=40; i<=nlev; i++))
+	#	do
+	#		# repeat for all levels...
+	#		rfile="tsmp_out_cosmo_${var}_${yyyy}-${mm}_focusdomain_316x316.nc"
+	#		cdo -sellevel,$i $indir/$rfile "${indir}/tsmp_out_cosmo_${var}_${yyyy}-${mm}_focusdomain_316x316_sellev_${i}.nc"
+	#		infile="tsmp_out_cosmo_${var}_${yyyy}-${mm}_focusdomain_316x316_sellev_${i}.nc"
+	#		# delete level dimension
+	#		infile_new="tsmp_out_cosmo_${var}_${yyyy}-${mm}_focusdomain_316x316_sellev_${i}d.nc"
+	#		ncwa -v $var -y avg -a lev $indir/$infile $indir/$infile_new
+	#		rm -f $indir/$infile
+	#		# Filter the data !
+	#		echo "./filter_data.sh $indir $infile_new $outdir $gx $gy $var $filter_indir $filterfile $filtertype "
+	#		./filter_data.sh $indir $infile_new $outdir $gx $gy $var $filter_indir $filterfile $filtertype 
+	#		rm -f $indir/$infile_new
+	#	done
+	#else
+	#		# Filter the data !
+	#		echo "./filter_data.sh $indir $infile $outdir $gx $gy $var $filter_indir $filterfile $filtertype "
+	#		./filter_data.sh $indir $infile $outdir $gx $gy $var $filter_indir $filterfile $filtertype 
+	#fi
+		

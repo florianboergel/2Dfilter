@@ -1,0 +1,7 @@
+ 
+# JKe
+# 19-01-2017
+
+# Compilation @ ecgate
+f95 -o polyfit polyfit.f90 $NETCDF_INCLUDE $NETCDF_LIB 
+

@@ -1,0 +1,939 @@
+
+[profile.ecmwf-INFO] HOME=/home/ms/spde/de5j=/home/ms/spde/de5j
+
+[profile.ecmwf-INFO] PERM=/perm/ms/spde/de5j=/perm/ms/spde/de5j
+
+[profile.ecmwf-INFO] SCRATCH=TEMP=/scratch/ms/spde/de5j=/lus/snx11062/scratch/ms/spde/de5j
+
+[profile.ecmwf-INFO] SCRATCHDIR=TMPDIR=/lus/snx11062/TMP/JTMP/38/de5j.8171716.ccapar.20170815T091824
+
+## INFO -------------------------------------------------------------------------------------
+## INFO  This is the ECMWF jobfilter (v3.00)
+## INFO  +++ Please report issues to calldesk, cdk@ecmwf.int +++
+## INFO  configuration info:
+## INFO  /usr/local/apps/pbs_tools/bin/ecqsub: size: 94677, mtime: Wed Jul  5 09:58:42 2017
+## INFO  /usr/local/apps/pbs_tools/config/ecqsub.conf (/usr/local/apps/pbs_tools/config/ecqsub.conf): size: 6307, mtime: Thu Mar 16 15:53:55 2017
+## INFO  /usr/local/apps/pbs_tools/config/multicomplex.conf (/usr/local/apps/pbs_tools/config/multicomplex.conf): size: 3916, mtime: Mon Oct  3 06:57:13 2016
+## INFO  /usr/local/apps/pbs_tools/config/ecqsub_rules.conf (/usr/local/apps/pbs_tools/config/ecqsub_rules.conf): size: 17477, mtime: Fri Jun 16 13:55:46 2017
+## INFO  /usr/local/apps/pbs_tools/config/system_sessions.conf (/usr/local/apps/pbs_tools/config/system_sessions.conf): size: 1486, mtime: Thu Aug  3 10:34:51 2017
+## INFO  system logfile is: /usr/local/apps/pbs_tools/logs/ecqsub.log.20170815
+## INFO -------------------------------------------------------------------------------------
+## INFO  
+## INFO Time at submit: Tue Aug 15 09:18:24 2017 (1502788704.32) on cca-login3:/perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse
+## INFO invoked as: '/opt/pbs/13.0.403.161593/bin/qsub' 'jobsubmission.ksh'
+## INFO IN: #PBS -S /usr/bin/ksh
+## INFO IN: #PBS -N T_filter_application
+## INFO IN: #PBS -q ns
+## INFO IN: #PBS -o /perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job.o
+## INFO IN: #PBS -e /perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job.e
+## INFO IN: #PBS -l walltime=24:00:00
+## INFO IN: #PBS -l EC_nodes=1
+## INFO IN: #PBS -l EC_total_tasks=1
+## INFO IN: #PBS -l EC_tasks_per_node=1
+## INFO IN: #PBS -l EC_hyperthreads=1
+## INFO IN: #PBS -l EC_memory_per_task=20GB
+## INFO EC_billing_account not provided
+## INFO Billing account = spdekoll
+## INFO Billing account spdekoll OK
+## INFO history jobtag identifier = de5j-T_filter_application-/perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job
+## INFO Recommended Max threads per NUMA node = [1]
+## INFO rule 'TEMPLATE' disabled
+## INFO jobfilter-rule did not fire: 'moose_only'
+## INFO jobfilter-rule did not fire: 'oom_0'
+## INFO rule 'accept_benchmarkers_only' disabled
+## INFO jobfilter-rule did not fire: 'allow_hpcsupp'
+## INFO rule 'for_benchmarking_free_and_vp' disabled
+## INFO jobfilter-rule did not fire: 'kronos_free_and_kronos'
+## INFO rule 'dump_job' disabled
+## INFO jobfilter-rule did not fire: 'np_to_vp'
+## INFO jobfilter-rule did not fire: 'EC_aries_elecgroup_for_np'
+## INFO jobfilter-rule did not fire: 'row2_pset_for_huge_np'
+## INFO jobfilter-rule did not fire: 'mega_np_to_user_hold'
+## INFO jobfilter-rule did not fire: 'op_place__EC_aries_elec'
+## INFO jobfilter-rule did not fire: 'o_suite_hres_to_hp'
+## INFO jobfilter-rule did not fire: 'o_suite_sekf_to_sp'
+## INFO jobfilter-rule did not fire: 'o_suite_prodgen_to_free'
+## INFO jobfilter-rule did not fire: 'o_suite_jb_calc_ifsmin_boost_prio_over_newreqs'
+## INFO jobfilter-rule did not fire: 'o_e_suite_hres_to_hp'
+## INFO jobfilter-rule did not fire: 'o_e_suite_sekf_to_sp'
+## INFO jobfilter-rule did not fire: 'o_e_suite_prodgen_to_free'
+## INFO rule 'e_suite_jb_calc_ifsmin_boost_prio_over_newreqs' disabled
+## INFO jobfilter-rule did not fire: 'n_esuite_to_vp'
+## INFO jobfilter-rule did not fire: '007._esuite_240_to_hyper'
+## INFO rule 'esuite_hres_to_hp' disabled
+## INFO rule 'esuite_sekf_to_sp' disabled
+## INFO rule 'esuite_prodgen_to_free' disabled
+## INFO jobfilter-rule did not fire: 'cleps_lokal_member_to_xp_with_aries'
+## INFO Recommended Max threads per NUMA node = [1]
+## INFO Calculated select = 1:vntype=cray_postproc:EC_accept_from_queue=ns:ncpus=1:mem=20480MB
+## INFO Enforcing Select
+## INFO Nodes needed: 1
+## INFO Setting directive #PBS -l EC_threads_per_task=1
+## INFO Setting directive #PBS -l EC_memory_per_task=20GB
+## INFO Setting directive #PBS -l select=1:vntype=cray_postproc:EC_accept_from_queue=ns:ncpus=1:mem=20480MB
+## INFO Setting directive #PBS -l EC_job_tmpdir=DEFAULT
+## INFO Setting directive #PBS -l EC_threads_per_numa_node=1
+## INFO Setting directive #PBS -l EC_tasks_per_node=1
+## INFO Setting directive #PBS -l EC_billing_account=spdekoll
+## INFO Setting directive #PBS -l EC_tmpdir_mem=0
+## INFO Setting directive #PBS -l EC_hyperthreads=1
+## INFO Setting directive #PBS -l EC_max_threads_per_node=1
+## INFO Setting directive #PBS -l EC_total_tasks=1
+## INFO Setting directive #PBS -l EC_resources=generic:snx11062
+## INFO Setting directive #PBS -l EC_nodes=1
+## INFO Setting directive #PBS -l EC_ppn_cpus=1
+## INFO Calling qsub with args: ['/opt/pbs/default/bin/qsubf.ALTAIR_ORIG', '-f', '-v', 'EC_ORIG_TMPDIR=/lus/snx11062/TMP/JTMP/38/de5j.REPLACE_WITH_JOBID.20170815T091824,EC_ORIG_SCRATCHDIR=/lus/snx11062/TMP/JTMP/38/de5j.REPLACE_WITH_JOBID.20170815T091824,EC_job_tmpdir=DEFAULT,EC_tmpdir_mem=0', '-q', 'ns@ccapar:15001']
+## INFO OUT: #PBS -l EC_predicted_walltime=0
+## INFO OUT: #PBS -l EC_threads_per_task=1
+## INFO OUT: #PBS -l EC_memory_per_task=20GB
+## INFO OUT: #PBS -l select=1:vntype=cray_postproc:EC_accept_from_queue=ns:ncpus=1:mem=20480MB
+## INFO OUT: #PBS -l EC_job_tmpdir=DEFAULT
+## INFO OUT: #PBS -l EC_threads_per_numa_node=1
+## INFO OUT: #PBS -W umask=027
+## INFO OUT: #PBS -l EC_tasks_per_node=1
+## INFO OUT: #PBS -l EC_billing_account=spdekoll
+## INFO OUT: #PBS -l EC_tmpdir_mem=0
+## INFO OUT: #PBS -l EC_hyperthreads=1
+## INFO OUT: #PBS -l EC_max_threads_per_node=1
+## INFO OUT: #PBS -N T_filter_applic
+## INFO OUT: #PBS -l EC_total_tasks=1
+## INFO OUT: #PBS -l EC_resources=generic:snx11062
+## INFO OUT: #PBS -l EC_nodes=1
+## INFO OUT: #PBS -l EC_ppn_cpus=1
+## INFO OUT: #PBS -S /usr/bin/ksh
+## INFO OUT: #PBS -q ns
+## INFO OUT: #PBS -o /perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job.o
+## INFO OUT: #PBS -e /perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job.e
+## INFO OUT: #PBS -l walltime=24:00:00
+## INFO  
+Starting 03_application.sh
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-01_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-01_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-01_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-01_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-02_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-02_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-02_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-02_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-03_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-03_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-03_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-03_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-04_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-04_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-04_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-04_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-05_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-05_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-05_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-05_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-06_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-06_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-06_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-06_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-07_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-07_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-07_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-07_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-08_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-08_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-08_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-08_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-09_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-09_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-09_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-09_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-10_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-10_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-10_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-10_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-11_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-11_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-11_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-11_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+Looping from 50 until 50
+Processing level 50
+**************
+Applying low-pass filter ...
+./filter_data.sh /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly/ tsmp_out_cosmo_T_2003-12_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 316 316 T /scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8/filters/ lf_316x316_8_158x158_006x043.nc l
+Tl will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_T_2003-12_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/terrsysmp_run/cordex_1.2.0MCT_clm-cos-pfl_MODIS2000_HFD2_3D_sn_v04l_ref2/output/pp/focusdomain/cosmo_out/hourly//tsmp_out_cosmo_T_2003-12_focusdomain_316x316_sellev_50d.nc                                                                                                           
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+**************
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc
+**************
+Applying band-pass filter (1)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_020x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_020x150_sublowpass/...
+**************
+Applying band-pass filter (2)...
+./filter_data.sh /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043 tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass 316 316 dTl /scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc/filters/ bf_316x316_8_158x158_039x150.nc b
+dTlb will be attached to /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc.
+filter data
+ opening filter file
+ 1.
+ ... ncid is            3
+ 2.
+ opening data file
+ 3.
+ ... filein is /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/lf_316x316_8_158x158_006x043/tsmp_out_cosmo_dT_2003-12_focusdomain_316x316_sellev_50d.nc                                                                                                                            
+ ... ncidf is            3
+ 4.
+ 5.
+ 6.
+ 7.
+ 8.
+ filtering data 
+ writing data 
+Successfully created: /scratch/ms/spde/de5j/filtered_data_316x316_158x158_N8/MODIS2000_HFD2_3D_sn_v04l_ref2/T/bf_316x316_8_158x158_039x150_sublowpass/...
+
+
+[sh.epilog.ecmwf-INFO] resources consumed by this shell:
+
+user	35m18.43s
+sys	6m0.86s
+## INFO ----------------------------------------------------------------------------------
+## INFO  This is the ECMWF job Epilogue. Please report problems to calldesk, cdk@ecmwf.int
+## INFO ----------------------------------------------------------------------------------
+## INFO  
+## INFO Run at Tue Aug 15 10:27:41 2017 on CCA
+## INFO Job Name                  : T_filter_applic
+## INFO Job ID                    : 8171716.ccapar
+## INFO Queued                    : Tue Aug 15 09:18:24 2017
+## INFO Dispatched                : Tue Aug 15 09:18:37 2017
+## INFO Completed                 : Tue Aug 15 10:27:41 2017
+## INFO Waiting in the queue      : 13 seconds
+## INFO Runtime                   : 4144 seconds
+## INFO Exit Code                 : 0
+## INFO Account                   : spdekoll
+## INFO Queue                     : ns
+## INFO Owner                     : de5j
+## INFO STDOUT                    : /perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job.o
+## INFO STDERR                    : /perm/ms/spde/de5j/tools/analysis-tools/2dfilter/wateruse/job.e
+## INFO Hyperthreads              : 1
+## INFO SBU                       : 9.283578 units
+## INFO Logical CPUs              : 1
+## INFO Historic runtime average            : 10244.00 seconds
+## INFO Historic runtime standard deviation : 6101.34 seconds
+## INFO  
+## INFO   MOM RESOURCES USED | ncpus      cput       runtime    vmem       mem       
+## INFO ----------------------------------------------------------------------------
+## INFO   15.08.2017 - 10:27 | 1          2479       4144       2031068kb  1813800kb 
+## INFO  
+## INFO Note: Historic runtime average is 10244 seconds with a standard deviation of 6101.3 seconds
+## INFO This runtime falls within 1 standard deviation of average
+## INFO  
+## INFO Removing prologue-created EC_ORIG_SCRATCHDIR /lus/snx11062/TMP/JTMP/38/de5j.8171716.ccapar.20170815T091824 on ccappn024 at 20170815T102742
