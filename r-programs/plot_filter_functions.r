@@ -1,0 +1,127 @@
+#
+# This script plots 2D digital isofilters after Feser and von Storch (2005) and Feser (2006) 
+# i.e. the filter functions and their respective response functions, similar to Fig. 3+4 in Feser and von Storch (2005) 
+# for a low-pass filter and two band-pass filters
+# 
+# JKe 23-01-2017
+
+rm(list=ls())
+library(ncdf)
+library(fields)
+library(RColorBrewer)
+
+setwd("/perm/ms/spde/de5j/tools/analysis-tools/r-programs")
+source("r_colors.r")
+
+# Read filter and response functions 
+
+	# low pass filter
+	lppath="/scratch/ms/spde/de5j/lowpassfilter_316x316_158x158_N8"
+	lp_filterfile=sprintf("%s/filters/lf_316x316_8_158x158_006x043.nc",lppath)
+	lp_responsefile=sprintf("%s/respfunct/lr_316x316_8_158x158_006x043.nc",lppath)
+	lncfile		= open.ncdf(lp_filterfile)
+	lpfilter	= get.var.ncdf(lncfile,"filter")
+	lncfile		= open.ncdf(lp_responsefile)
+	lpresponse	= get.var.ncdf(lncfile,"response")
+
+	# band pass filter (1)
+	bppath="/scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc"
+	bp1_filterfile=sprintf("%s/filters/bf_316x316_8_158x158_039x150.nc",bppath)
+	bp1_responsefile=sprintf("%s/respfunct/br_316x316_8_158x158_039x150.nc",bppath)
+	bncfile1	= open.ncdf(bp1_filterfile)
+	bpfilter1	= get.var.ncdf(bncfile1,"filter")
+	bncfile1	= open.ncdf(bp1_responsefile)
+	bpresponse1	= get.var.ncdf(bncfile1,"response")
+
+	# band pass filter (2)
+	bppath="/scratch/ms/spde/de5j/bandpassfilter_316x316_158x158_N8_maxinc"
+	bp2_filterfile=sprintf("%s/filters/bf_316x316_8_158x158_020x150.nc",bppath)
+	bp2_responsefile=sprintf("%s/respfunct/br_316x316_8_158x158_020x150.nc",bppath)
+	bncfile2	= open.ncdf(bp2_filterfile)
+	bpfilter2	= get.var.ncdf(bncfile2,"filter")
+	bncfile2	= open.ncdf(bp2_responsefile)
+	bpresponse2	= get.var.ncdf(bncfile2,"response")
+
+pdf("plots/Lowpassfilter_316x316_158x158_N8_006x043_filter+response.pdf",width=9.5,height=4,onefile = TRUE, family = "sans", fonts = NULL, version = "1.1", pointsize=14,title=sprintf("Low pass filter"))
+par(mar=c(2.5,2.5,0.5,1.0),oma=c(0,0,0,0),mgp=c(1.05,0.25,0))
+ par(mfrow=c(1,2))
+# filter
+ par(mar=c(2.5,2.5,0.85,4.0))
+ image(seq(1,17,1),seq(1,17,1),lpfilter,col=corcol,xlab="x",ylab="y",horizontal=FALSE,legend.shrink=0.75,legend.width=0.75,cex=0.75, axis.args = list(cex.axis = 0.65),xaxt="n",yaxt="n")
+ axis(1,at=seq(0.5,17.5,2),labels=seq(0,17,2),tcl=-0.35,cex.axis=0.5)
+ axis(1,at=seq(0.5,17.5,1),labels=FALSE,tcl=-0.2)
+ axis(2,at=seq(0.5,17.5,2),labels=seq(0,17,2),tcl=-0.35,cex.axis=0.5)
+ axis(2,at=seq(0.5,17.5,1),labels=FALSE,tcl=-0.2)
+ mtext("a.",side=3,padj=0,adj=0,cex=0.75)
+ par(mar=c(2.5,0.0,0.5,5.5))
+ require(fields)
+ image.plot(seq(1,17,1),seq(1,17,1),lpfilter,col=corcol,xlab="x",ylab="y",legend.width=2.5,cex=0.9, axis.args = list(cex.axis = 0.65),legend.only=T,add=T)
+# response 
+ par(mar=c(2.5,2.5,0.85,4.0))
+ image(seq(1,159,1),seq(1,159,1),lpresponse,col=twocol,xlab="k",ylab="l",xaxt="n",yaxt="n")
+ contour(seq(1,159,1),seq(1,159,1),lpresponse,add=T)
+ mtext("b.",side=3,padj=0,adj=0,cex=0.75)
+ axis(1,at=seq(0.5,159.5,20),labels=seq(0,159,20),tcl=-0.35,cex.axis=0.5)
+ axis(1,at=seq(0.5,159.5,5),labels=F,tcl=-0.2)
+ axis(2,at=seq(0.5,159.5,20),labels=seq(0,159,20),tcl=-0.35,cex.axis=0.5)
+ axis(2,at=seq(0.5,159.5,5),labels=F,tcl=-0.2)
+ par(mar=c(2.5,0.0,0.5,5.5))
+ require(fields)
+ image.plot(seq(1,159,1),seq(1,159,1),lpresponse,col=twocol,xlab="k",ylab="l",xaxt="n",yaxt="n",legend.width=2.5,cex=0.75, axis.args = list(cex.axis = 0.65),legend.only=T,add=T)
+ dev.off()
+
+pdf("plots/Bandpassfilter_316x316_158x158_N8_039x150_filter+response.pdf",width=9.5,height=4,onefile = TRUE, family = "sans", fonts = NULL, version = "1.1", pointsize=14,title=sprintf("Low pass filter"))
+par(mar=c(2.5,2.5,0.5,1.0),oma=c(0,0,0,0),mgp=c(1.05,0.25,0))
+ par(mfrow=c(1,2))
+# filter
+ par(mar=c(2.5,2.5,0.85,4.0))
+ image(seq(1,17,1),seq(1,17,1),bpfilter1,col=corcol,xlab="x",ylab="y",horizontal=FALSE,legend.shrink=0.75,legend.width=0.75,cex=0.75, axis.args = list(cex.axis = 0.65),xaxt="n",yaxt="n")
+ axis(1,at=seq(0.5,17.5,2),labels=seq(0,17,2),tcl=-0.35,cex.axis=0.5)
+ axis(1,at=seq(0.5,17.5,1),labels=FALSE,tcl=-0.2)
+ axis(2,at=seq(0.5,17.5,2),labels=seq(0,17,2),tcl=-0.35,cex.axis=0.5)
+ axis(2,at=seq(0.5,17.5,1),labels=FALSE,tcl=-0.2)
+ mtext("a.",side=3,padj=0,adj=0,cex=0.75)
+ par(mar=c(2.5,0.0,0.5,5.5))
+ require(fields)
+ image.plot(seq(1,17,1),seq(1,17,1),bpfilter1,col=corcol,xlab="x",ylab="y",legend.width=2.5,cex=0.9, axis.args = list(cex.axis = 0.65),legend.only=T,add=T)
+# response 
+ par(mar=c(2.5,2.5,0.85,4.0))
+ image(seq(1,159,1),seq(1,159,1),bpresponse1,col=twocol,xlab="k",ylab="l",xaxt="n",yaxt="n")
+ contour(seq(1,159,1),seq(1,159,1),bpresponse1,add=T)
+ mtext("b.",side=3,padj=0,adj=0,cex=0.75)
+ axis(1,at=seq(0.5,159.5,20),labels=seq(0,159,20),tcl=-0.35,cex.axis=0.5)
+ axis(1,at=seq(0.5,159.5,5),labels=F,tcl=-0.2)
+ axis(2,at=seq(0.5,159.5,20),labels=seq(0,159,20),tcl=-0.35,cex.axis=0.5)
+ axis(2,at=seq(0.5,159.5,5),labels=F,tcl=-0.2)
+ par(mar=c(2.5,0.0,0.5,5.5))
+ require(fields)
+ image.plot(seq(1,159,1),seq(1,159,1),bpresponse1,col=twocol,xlab="k",ylab="l",xaxt="n",yaxt="n",legend.width=2.5,cex=0.75, axis.args = list(cex.axis = 0.65),legend.only=T,add=T)
+ dev.off()
+
+pdf("plots/Bandpassfilter_316x316_158x158_N8_020x150_filter+response.pdf",width=9.5,height=4,onefile = TRUE, family = "sans", fonts = NULL, version = "1.1", pointsize=14,title=sprintf("Low pass filter"))
+par(mar=c(2.5,2.5,0.5,1.0),oma=c(0,0,0,0),mgp=c(1.05,0.25,0))
+ par(mfrow=c(1,2))
+# filter
+ par(mar=c(2.5,2.5,0.85,4.0))
+ image(seq(1,17,1),seq(1,17,1),bpfilter2,col=corcol,xlab="x",ylab="y",horizontal=FALSE,legend.shrink=0.75,legend.width=0.75,cex=0.75, axis.args = list(cex.axis = 0.65),xaxt="n",yaxt="n")
+ axis(1,at=seq(0.5,17.5,2),labels=seq(0,17,2),tcl=-0.35,cex.axis=0.5)
+ axis(1,at=seq(0.5,17.5,1),labels=FALSE,tcl=-0.2)
+ axis(2,at=seq(0.5,17.5,2),labels=seq(0,17,2),tcl=-0.35,cex.axis=0.5)
+ axis(2,at=seq(0.5,17.5,1),labels=FALSE,tcl=-0.2)
+ mtext("a.",side=3,padj=0,adj=0,cex=0.75)
+ par(mar=c(2.5,0.0,0.5,5.5))
+ require(fields)
+ image.plot(seq(1,17,1),seq(1,17,1),bpfilter2,col=corcol,xlab="x",ylab="y",legend.width=2.5,cex=0.9, axis.args = list(cex.axis = 0.65),legend.only=T,add=T)
+# response 
+ par(mar=c(2.5,2.5,0.85,4.0))
+ image(seq(1,159,1),seq(1,159,1),bpresponse2,col=twocol,xlab="k",ylab="l",xaxt="n",yaxt="n")
+ contour(seq(1,159,1),seq(1,159,1),bpresponse2,add=T)
+ mtext("b.",side=3,padj=0,adj=0,cex=0.75)
+ axis(1,at=seq(0.5,159.5,20),labels=seq(0,159,20),tcl=-0.35,cex.axis=0.5)
+ axis(1,at=seq(0.5,159.5,5),labels=F,tcl=-0.2)
+ axis(2,at=seq(0.5,159.5,20),labels=seq(0,159,20),tcl=-0.35,cex.axis=0.5)
+ axis(2,at=seq(0.5,159.5,5),labels=F,tcl=-0.2)
+ par(mar=c(2.5,0.0,0.5,5.5))
+ require(fields)
+ image.plot(seq(1,159,1),seq(1,159,1),bpresponse2,col=twocol,xlab="k",ylab="l",xaxt="n",yaxt="n",legend.width=2.5,cex=0.75, axis.args = list(cex.axis = 0.65),legend.only=T,add=T)
+ dev.off()
